@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="GBK"?>
+<web-app>
+    <welcome-file-list>
+        <welcome-file>getAllProducts</welcome-file>
+    </welcome-file-list>
+    <listener>
+        <listener-class>com.shopcart.util.Listener</listener-class>
+    </listener>
+</web-app>
