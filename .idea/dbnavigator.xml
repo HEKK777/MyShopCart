@@ -17,7 +17,9 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="fa0c16a7-ad8d-4e0f-b6a8-ca0a860d8569">
-      <console name="MyShopCart" type="STANDARD" schema="shopcart" session="Main"><![CDATA[use shopcart;
+      <console name="MyShopCart" type="STANDARD" schema="shopcart" session="Main"><![CDATA[create schema shopcart;
+
+use shopcart;
 
 create table Product (
     id int primary key auto_increment,
@@ -34,7 +36,14 @@ insert into Product (name, price, image) values ('空气净化器',599,'PIC/空�
 insert into Product (name, price, image) values ('碗',16,'PIC/碗.jpeg')
 insert into Product (name, price, image) values ('剪刀',9.9,'PIC/剪刀.jpeg')
 
-select * from product]]></console>
+create table ShopCartList (
+    id int primary key auto_increment,
+    product_name varchar(255),
+    product_price decimal(10,2)
+);
+
+select * from product
+select * from ShopCartList]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">
@@ -42,7 +51,6 @@ select * from product]]></console>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files>
-      <object connection-id="fa0c16a7-ad8d-4e0f-b6a8-ca0a860d8569" object-ref="schemas/shopcart/tables/product" />
       <object connection-id="fa0c16a7-ad8d-4e0f-b6a8-ca0a860d8569" object-ref="consoles/MyShopCart" />
     </open-files>
   </component>
@@ -50,14 +58,24 @@ select * from product]]></console>
     <connection id="fa0c16a7-ad8d-4e0f-b6a8-ca0a860d8569" />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="fa0c16a7-ad8d-4e0f-b6a8-ca0a860d8569" dataset="shopcart.shopcartlist" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="fa0c16a7-ad8d-4e0f-b6a8-ca0a860d8569" dataset="shopcart.shopcart" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="fa0c16a7-ad8d-4e0f-b6a8-ca0a860d8569" dataset="shopcart.product" active-filter-id="EMPTY_FILTER" />
   </component>
   <component name="DBNavigator.Project.ExecutionManager">
     <retain-sticky-names value="false" />
   </component>
+  <component name="DBNavigator.Project.FileConnectionMappingManager">
+    <mapping file-url="file://$PROJECT_DIR$/src/main/resources/Datebase.sql" connection-id="fa0c16a7-ad8d-4e0f-b6a8-ca0a860d8569" session-id="MAIN" current-schema="mysql" />
+  </component>
   <component name="DBNavigator.Project.ObjectQuickFilterManager">
     <last-used-operator value="EQUAL" />
     <filters />
+  </component>
+  <component name="DBNavigator.Project.ScriptExecutionManager" clear-outputs="true">
+    <recently-used-interfaces>
+      <mapping database-type="MYSQL" interface-id="DEFAULT" />
+    </recently-used-interfaces>
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
@@ -82,7 +100,7 @@ select * from product]]></console>
           <deprecated-pwd value="MTIzNDU2" />
         </database>
         <properties>
-          <auto-commit value="false" />
+          <auto-commit value="true" />
         </properties>
         <ssh-settings>
           <active value="false" />
@@ -124,7 +142,7 @@ select * from product]]></console>
           <tcp-port-to value="4999" />
           <debugger-type value="ASK" />
         </debugger>
-        <object-filters hide-empty-schemas="false" hide-pseudo-columns="false" hide-audit-columns="false">
+        <object-filters hide-empty-schemas="true" hide-pseudo-columns="false" hide-audit-columns="false">
           <object-filters />
           <object-type-filter use-master-settings="true">
             <object-type name="SCHEMA" enabled="true" />

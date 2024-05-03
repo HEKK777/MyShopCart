@@ -128,7 +128,7 @@
                 <img src="<%= product.getImage() %>" alt="商品图片">
                 <div class="product-name"><%= product.getName() %></div>
                 <div style="clear: both;">
-                    <form action="add-to-cart" method="post" class="add-to-cart">
+                    <form action="addToCart" method="post" class="add-to-cart">
                         <input type="hidden" name="productName" value="<%= product.getName() %>">
                         <input type="hidden" name="price" value="<%= product.getPrice() %>">
                         <input class="add-to-cart" type="submit" value="添加到购物车">

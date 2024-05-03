@@ -1,6 +1,7 @@
 package com.shopcart.servlet;
 
 import com.shopcart.bean.Product;
+import com.shopcart.dao.ProductDao;
 import com.shopcart.util.GetSqlSession;
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
@@ -15,8 +16,8 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet(name = "getAllProducts",value = "/getAllProducts",loadOnStartup = 1)
-public class getAllProducts extends HttpServlet {
-    private static final Logger LOGGER = LoggerFactory.getLogger(getAllProducts.class);
+public class getAllProductsServlet extends HttpServlet {
+    private static final Logger LOGGER = LoggerFactory.getLogger(getAllProductsServlet.class);
 
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -26,8 +27,7 @@ public class getAllProducts extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Product> list = null;
         try {
-            SqlSession sqlsession = GetSqlSession.getSqlSession();
-            list = sqlsession.selectList("com.shopcart.mapper.ProductMapper.getAllProducts");
+            list = ProductDao.getAllProducts();
         }catch (Exception e) {
             LOGGER.error("获取产品信息失败", e);
             GetSqlSession.rollback();
