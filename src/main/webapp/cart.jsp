@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
 <%@ page import="java.text.DecimalFormat" %>
-<%@ page import="com.shopcart.CartItem" %>
+<%@ page import="com.shopcart.bean.ShopCart" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -91,25 +91,24 @@
     <div class="cart">
     <h1><i class="fas fa-shopping-cart">购物车</i></h1>
         <%
-            // 从Session中获取购物车
-            Map<String, CartItem> cart = (Map<String, CartItem>) session.getAttribute("cart");
+            List<ShopCart> cart = (List<ShopCart>) request.getAttribute("ShopCartList");
             double totalPrice = 0.0;
-            if (cart != null && !cart.isEmpty()) {
+            if (cart != null && cart.size() > 0) {
         %>
             <ul>
-                <% for (CartItem item : cart.values()) { %>
+                <% for (ShopCart item : cart) { %>
                     <li>
-                        <div class="product-name"><%= item.getName() %></div>
-                        <div class="price">￥<%= item.getPrice() %></div>
-                        <div class="quantity">× <%= item.getQuantity() %></div>
+                        <div class="product-name"><%= item.getProduct_name() %></div>
+                        <div class="price">￥<%= item.getProduct_price() %></div>
+                        <div class="quantity">× <%= item.getProduct_quantity() %></div>
                         <form action="remove-from-cart" method="post">
-                            <input type="hidden" name="productName" value="<%= item.getName() %>">
+                            <input type="hidden" name="productName" value="<%= item.getProduct_name() %>">
                             <input type="submit" class="remove-button" value="移除"> <i class="fas fa-trash-alt"></i>
                         </form>
                     </li>
                     <%
                         // 累计总价
-                        totalPrice += item.getTotalPrice();
+                        totalPrice += item.getProduct_price()*item.getProduct_quantity();
                         DecimalFormat df = new DecimalFormat("#.00");
                     %>
                 <% } %>
@@ -124,7 +123,7 @@
         %>
     </div>
     <div style="text-align:center; margin-top:20px;">
-            <a href="index.jsp" class="button">返回商品列表</a>
+            <a href="/getAllProducts" class="button">返回商品列表</a>
     </div>
 </body>
 </html>

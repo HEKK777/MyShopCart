@@ -140,7 +140,7 @@
         <% } %>
     </div>
     <div>
-        <a class="cart-link" href="cart.jsp"><i class="fas fa-shopping-cart"></i> 查看购物车</a>
+        <a class="cart-link" href="/getAllShopCart"><i class="fas fa-shopping-cart"></i> 查看购物车</a>
     </div>
 </body>
 </html>

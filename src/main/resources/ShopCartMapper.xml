@@ -6,8 +6,8 @@
         select * from ShopCartList
     </select>
     <insert id="insertShopCart" parameterType="com.shopcart.bean.ShopCart">
-        insert into ShopCartList(id,product_name,product_price,quantity)
+        insert into ShopCartList(product_id,product_name,product_price,product_quantity)
         values(#{product_id},#{product_name},#{product_price},#{product_quantity})
-        on duplicate key update quantity = quantity + 1;
+        on duplicate key update product_quantity = product_quantity + 1;
     </insert>
 </mapper>
