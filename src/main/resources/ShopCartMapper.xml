@@ -10,4 +10,9 @@
         values(#{product_id},#{product_name},#{product_price},#{product_quantity})
         on duplicate key update product_quantity = product_quantity + 1;
     </insert>
+    <update id="updateShopCart" parameterType="int">
+        <!-- 控制商品数量——控制商品数量加一和商品数量减一，数量为0时删除id -->
+        update shopcartlist set product_quantity = case when product_quantity > 0 then product_quantity - 1 else 0 end where product_id = #{product_id};
+        delete from ShopCartList where product_id = #{product_id} and product_quantity = 0;
+    </update>
 </mapper>

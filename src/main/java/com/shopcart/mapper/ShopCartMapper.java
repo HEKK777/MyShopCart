@@ -7,4 +7,5 @@ import java.util.List;
 public interface ShopCartMapper {
     List<ShopCart> getAllShopCart();
     void insertShopCart(ShopCart shopCart);
+    void updateShopCart(int id);
 }

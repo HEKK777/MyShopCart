@@ -101,8 +101,8 @@
                         <div class="product-name"><%= item.getProduct_name() %></div>
                         <div class="price">￥<%= item.getProduct_price() %></div>
                         <div class="quantity">× <%= item.getProduct_quantity() %></div>
-                        <form action="remove-from-cart" method="post">
-                            <input type="hidden" name="productName" value="<%= item.getProduct_name() %>">
+                        <form action="removeFromCart" method="post">
+                            <input type="hidden" name="product_id" value="<%= item.getProduct_id() %>">
                             <input type="submit" class="remove-button" value="移除"> <i class="fas fa-trash-alt"></i>
                         </form>
                     </li>

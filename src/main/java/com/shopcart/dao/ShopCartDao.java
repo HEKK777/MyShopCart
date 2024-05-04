@@ -24,5 +24,11 @@ public class ShopCartDao {
         sqlSession.insert("com.shopcart.mapper.ShopCartMapper.insertShopCart", shopCart);
         sqlSession.commit();
     }
+
+    public static void updateShopCart(int id) {
+        SqlSession sqlSession = GetSqlSession.getSqlSession();
+        sqlSession.update("com.shopcart.mapper.ShopCartMapper.updateShopCart", id);
+        sqlSession.commit();
+    }
 }
 

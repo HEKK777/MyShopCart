@@ -45,6 +45,8 @@ create table ShopCartList (
 
 insert into ShopCartList (product_id, product_name, product_price, product_quantity) values (4, '充电宝', 46, 1) on duplicate key update product_quantity = product_quantity + 1;
 
+update shopcartlist set product_quantity = case when product_quantity > 0 then product_quantity - 1 else 0 end where product_id = 4;
+delete from ShopCartList where product_id = 4 and product_quantity = 0;
 
 select * from product
 select * from ShopCartList]]></console>
