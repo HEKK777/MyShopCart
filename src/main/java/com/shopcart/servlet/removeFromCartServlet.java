@@ -23,10 +23,10 @@ public class removeFromCartServlet extends HttpServlet {
         try {
             ShopCartDao.updateShopCart(id);
             System.out.println("删除成功");
-        }catch (Exception e) {
+        } catch (Exception e) {
             GetSqlSession.rollback();
             LOGGER.error("删除失败", e);
-        }finally {
+        } finally {
             GetSqlSession.commit();
         }
         response.sendRedirect("/getAllShopCart");

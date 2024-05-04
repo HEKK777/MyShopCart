@@ -1,11 +1,16 @@
 package com.shopcart.bean;
 
 public class ShopCart {
+    //商品id
     private int product_id;
+    //商品名称
     private String product_name;
+    //商品价格
     private double product_price;
+    //商品数量
     private int product_quantity;
 
+    //构造方法
     public int getProduct_id() {
         return product_id;
     }

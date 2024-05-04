@@ -5,15 +5,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class GetSqlSession {
-
+    //日志记录器
     private static final Logger LOGGER = LoggerFactory.getLogger(GetSqlSession.class);
-
+    //线程局部变量
     private static final ThreadLocal<SqlSession> tl = new ThreadLocal<>();
 
-    /**
-     * 获取SqlSession
-     * @return sqlSession
-     */
+    //获取SqlSession
     public static SqlSession getSqlSession(){
         SqlSession sqlSession = tl.get();
         if (sqlSession == null){
@@ -24,6 +21,7 @@ public class GetSqlSession {
         return sqlSession;
     }
 
+    //提交事务
     public static void commit(){
         if (tl.get() != null){
             tl.get().commit();
@@ -33,6 +31,7 @@ public class GetSqlSession {
         }
     }
 
+    //回滚事务
     public static void rollback(){
         if (tl.get() != null){
             tl.get().rollback();

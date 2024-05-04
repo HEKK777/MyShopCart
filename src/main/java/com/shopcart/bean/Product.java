@@ -1,11 +1,16 @@
 package com.shopcart.bean;
 
 public class Product {
+    //商品id
     private int id;
+    //商品名称
     private String name;
+    //商品价格
     private double price;
+    //商品图片
     private String image;
 
+    //构造方法
     public int getId() {
         return id;
     }
@@ -40,11 +45,6 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", price=" + price +
-                ", image='" + image + '\'' +
-                '}';
+        return "Product{" + "id=" + id + ", name='" + name + '\'' + ", price=" + price + ", image='" + image + '\'' + '}';
     }
 }

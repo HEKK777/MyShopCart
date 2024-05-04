@@ -56,9 +56,7 @@ select * from ShopCartList]]></console>
     <last-used-providers />
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files>
-      <object connection-id="fa0c16a7-ad8d-4e0f-b6a8-ca0a860d8569" object-ref="consoles/MyShopCart" />
-    </open-files>
+    <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="fa0c16a7-ad8d-4e0f-b6a8-ca0a860d8569" />

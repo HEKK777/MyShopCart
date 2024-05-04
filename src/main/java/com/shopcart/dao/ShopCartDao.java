@@ -10,7 +10,8 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import java.util.List;
 
 public class ShopCartDao {
-    public static List<ShopCart> getAllShopCarts(){
+    //获取所有购物车信息
+    public static List<ShopCart> getAllShopCarts() {
         SqlSessionFactory factory = GetSqlSessionFactory.getSqlSessionFactory();
         SqlSession session = factory.openSession();
         ShopCartMapper mapper = session.getMapper(ShopCartMapper.class);
@@ -19,12 +20,14 @@ public class ShopCartDao {
         return shopCarts;
     }
 
+    //添加至购物车
     public static void insertShopCart(ShopCart shopCart) {
         SqlSession sqlSession = GetSqlSession.getSqlSession();
         sqlSession.insert("com.shopcart.mapper.ShopCartMapper.insertShopCart", shopCart);
         sqlSession.commit();
     }
 
+    //删除商品
     public static void updateShopCart(int id) {
         SqlSession sqlSession = GetSqlSession.getSqlSession();
         sqlSession.update("com.shopcart.mapper.ShopCartMapper.updateShopCart", id);

@@ -17,20 +17,14 @@ public class GetSqlSessionFactory {
     //SqlSessionFactory 实例
     private static SqlSessionFactory sqlSessionFactory;
 
-    /**
-     * 私有构造方法，使该类不可创建新对象
-     */
-    private GetSqlSessionFactory(){
+    //构造方法私有化
+    private GetSqlSessionFactory() {
 
     }
 
-    /**
-     * 使用同步锁
-     * 获取 SqlSessionFactory 实例
-     * @return SqlSessionFactory 实例
-     */
-    synchronized public static SqlSessionFactory getSqlSessionFactory(){
-        if (sqlSessionFactory == null){
+    //获取SqlSessionFactory实例
+    synchronized public static SqlSessionFactory getSqlSessionFactory() {
+        if (sqlSessionFactory == null) {
             //获取资源文件流
             String resource = "mybatis-config.xml";
             InputStream inputStream = null;

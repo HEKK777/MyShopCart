@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import java.util.List;
 
 public class ProductDao {
+    //获取所有商品
     public static List<Product> getAllProducts() {
         SqlSessionFactory factory = GetSqlSessionFactory.getSqlSessionFactory();
         SqlSession session = factory.openSession();

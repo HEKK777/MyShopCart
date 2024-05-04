@@ -7,7 +7,6 @@ import com.shopcart.util.GetSqlSessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,8 +16,10 @@ import java.io.IOException;
 @WebServlet("/addToCart")
 public class addToCartServlet extends HttpServlet {
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        //解决中文乱码
         request.setCharacterEncoding("UTF-8");
+        //获取session
         final Logger LOGGER = LoggerFactory.getLogger(GetSqlSessionFactory.class);
         //获取商品信息和价格
         int productId = Integer.parseInt(request.getParameter("productId"));
@@ -26,13 +27,14 @@ public class addToCartServlet extends HttpServlet {
         double productPrice = Double.parseDouble(request.getParameter("price"));
         int quantity = 1;
 
-        //添加到购物车
+        //购物车对象
         ShopCart shopCart = new ShopCart();
         shopCart.setProduct_id(productId);
         shopCart.setProduct_name(productName);
         shopCart.setProduct_price(productPrice);
         shopCart.setProduct_quantity(quantity);
 
+        //添加到购物车
         try {
             ShopCartDao.insertShopCart(shopCart);
             System.out.println("添加到购物车成功！");
@@ -42,6 +44,7 @@ public class addToCartServlet extends HttpServlet {
         } finally {
             GetSqlSession.commit();
         }
+
         //重定向到首页
         response.sendRedirect("/getAllProducts");
     }
