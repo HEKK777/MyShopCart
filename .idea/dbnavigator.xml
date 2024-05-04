@@ -37,10 +37,14 @@ insert into Product (name, price, image) values ('碗',16,'PIC/碗.jpeg')
 insert into Product (name, price, image) values ('剪刀',9.9,'PIC/剪刀.jpeg')
 
 create table ShopCartList (
-    id int primary key auto_increment,
+    id int primary key,
     product_name varchar(255),
-    product_price decimal(10,2)
+    product_price decimal(10,2),
+    quantity int
 );
+
+insert into ShopCartList (id, product_name, product_price, quantity) values (4, '充电宝', 46, 1) on duplicate key update quantity = quantity + 1;
+
 
 select * from product
 select * from ShopCartList]]></console>

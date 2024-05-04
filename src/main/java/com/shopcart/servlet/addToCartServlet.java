@@ -4,7 +4,6 @@ import com.shopcart.bean.ShopCart;
 import com.shopcart.dao.ShopCartDao;
 import com.shopcart.util.GetSqlSession;
 import com.shopcart.util.GetSqlSessionFactory;
-import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -22,12 +21,17 @@ public class addToCartServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         final Logger LOGGER = LoggerFactory.getLogger(GetSqlSessionFactory.class);
         //获取商品信息和价格
+        int productId = Integer.parseInt(request.getParameter("productId"));
         String productName = request.getParameter("productName");
         double productPrice = Double.parseDouble(request.getParameter("price"));
+        int quantity = 1;
 
+        //添加到购物车
         ShopCart shopCart = new ShopCart();
+        shopCart.setProduct_id(productId);
         shopCart.setProduct_name(productName);
         shopCart.setProduct_price(productPrice);
+        shopCart.setProduct_quantity(quantity);
 
         try {
             ShopCartDao.insertShopCart(shopCart);
@@ -38,5 +42,7 @@ public class addToCartServlet extends HttpServlet {
         } finally {
             GetSqlSession.commit();
         }
+        //重定向到首页
+        response.sendRedirect("/getAllProducts");
     }
 }

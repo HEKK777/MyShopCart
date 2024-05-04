@@ -87,7 +87,7 @@
 
     <script>
     $(document).ready(function() {
-        $('.add-to-cart input[type="submit"]').click(function(e) {
+        $('.addToCart input[type="submit"]').click(function(e) {
             e.preventDefault();
             var form = $(this).closest('form');
 
@@ -129,6 +129,7 @@
                 <div class="product-name"><%= product.getName() %></div>
                 <div style="clear: both;">
                     <form action="addToCart" method="post" class="add-to-cart">
+                        <input type="hidden" name="productId" value="<%= product.getId() %>">
                         <input type="hidden" name="productName" value="<%= product.getName() %>">
                         <input type="hidden" name="price" value="<%= product.getPrice() %>">
                         <input class="add-to-cart" type="submit" value="添加到购物车">
