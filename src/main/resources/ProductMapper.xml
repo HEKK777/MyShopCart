@@ -5,4 +5,16 @@
     <select id="getAllProducts" resultType="com.shopcart.bean.Product">
         select * from product
     </select>
+    <insert id="addProduct" parameterType="com.shopcart.bean.Product">
+        insert into product (name, price, image) values (#{name}, #{price}, #{image})
+    </insert>
+    <delete id="deleteProduct" parameterType="int">
+        delete from product where id = #{id}
+    </delete>
+    <select id="getProductById" parameterType="int" resultType="com.shopcart.bean.Product">
+        select * from product where id = #{id}
+    </select>
+    <update id="updateProduct" parameterType="com.shopcart.bean.Product">
+        update product set name = #{name}, price = #{price}, image = #{image} where id = #{id}
+    </update>
 </mapper>

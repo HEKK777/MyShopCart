@@ -19,7 +19,7 @@ public class addToCartServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         //解决中文乱码
         request.setCharacterEncoding("UTF-8");
-        //获取session
+        //日志对象
         final Logger LOGGER = LoggerFactory.getLogger(GetSqlSessionFactory.class);
         //获取商品信息和价格
         int productId = Integer.parseInt(request.getParameter("productId"));

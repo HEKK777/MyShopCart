@@ -12,32 +12,31 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
-@WebServlet(name = "getAllProducts", value = "/getAllProducts", loadOnStartup = 1)
-public class getAllProductsServlet extends HttpServlet {
+@WebServlet("/getProductById")
+public class getProductByIdServlet extends HttpServlet {
     //日志记录器
-    private static final Logger LOGGER = LoggerFactory.getLogger(getAllProductsServlet.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(getProductByIdServlet.class);
 
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request, response);
-    }
+        //解决中文乱码
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        Product product = null;
+        int id = Integer.parseInt(request.getParameter("edit_id"));
 
-    //处理get请求
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //产品列表
-        List<Product> list = null;
         try {
-            list = ProductDao.getAllProducts();
+            product = ProductDao.getProductById(id);
         } catch (Exception e) {
-            LOGGER.error("获取产品信息失败", e);
+            LOGGER.error("获取商品信息失败", e);
             GetSqlSession.rollback();
         } finally {
             GetSqlSession.commit();
         }
+        System.out.println(product);
         //发送至前台
-        request.setAttribute("lists", list);
-        //转发至jsp页面
-        request.getRequestDispatcher("/index.jsp").forward(request, response);
+        request.setAttribute("product", product);
+        request.getRequestDispatcher("/getAllProducts").forward(request, response);
     }
 }
