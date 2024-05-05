@@ -160,25 +160,18 @@
            cursor: pointer; /* 鼠标悬停时变为手形 */
         }
 
-        /* 表单关闭按钮悬停样式 */
-        #addProductForm button[type="button"]:hover {
-            background-color: #45a049; /* 悬停时背景颜色变深 */
-        }
-
         /* 弹出表单的外层容器样式 */
         #editProductFrom {
-            display: none; /* 初始时隐藏表单 */
             position: fixed; /* 固定位置 */
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%); /* 居中显示 */
-            width: 400px; /* 设置表单宽度 */
+            bottom: 20px; /* 距离页面底部 20px */
+            left: 50%; /* 水平居中 */
+            transform: translateX(-50%); /* 水平居中 */
+            width: 100%; /* 设置表单宽度 */
+            max-width: 1000px; /* 设置表单的最大宽度 */
             background-color: #ffffff; /* 设置背景颜色为白色 */
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* 添加阴影效果 */
             border-radius: 8px; /* 设置圆角 */
             padding: 20px; /* 内边距 */
-            z-index: 1000; /* 确保表单在最上层 */
-            overflow: hidden; /* 隐藏超出部分 */
         }
 
         /* 表单标题样式 */
@@ -239,11 +232,6 @@
            border-radius: 4px; /* 按钮圆角 */
            cursor: pointer; /* 鼠标悬停时变为手形 */
         }
-
-        /* 表单关闭按钮悬停样式 */
-        #editProductFrom button[type="button"]:hover {
-            background-color: #45a049; /* 悬停时背景颜色变深 */
-        }
     </style>
 
 </head>
@@ -268,9 +256,9 @@
                         <input type="hidden" name="id" value="<%= product.getId() %>">
                         <input type="submit" class="add-to-cart" value="删除商品">
                     </form>
-                    <form action="getProductById" method="post" id="editIdForm">
+                    <form action="getProductById" method="post">
                         <input type="hidden" name="edit_id" value="<%= product.getId() %>">
-                        <input type="submit" id="editProductBtn" class="add-to-cart" value="编辑商品" onclick="handleEdit()">
+                        <input type="submit" id="editProductBtn" class="add-to-cart" value="编辑商品">
                     </form>
                 </div>
                 <div class="product-price">￥<%= product.getPrice() %></div>
@@ -278,7 +266,7 @@
         <% } %>
     </div>
     <div>
-        <a class="cart-link" href="/getAllShopCart"><i class="fas fa-shopping-cart"></i>查看购物车</a>
+        <a class="cart-link" href="/getAllShopCart"><i class="fas fa-shopping-cart"></i> 查看购物车</a>
     </div>
 
 
@@ -325,6 +313,7 @@
 
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- 商品列表等其他内容 -->
     <script>
         document.getElementById('addProductBtn').addEventListener('click', function() {
             document.getElementById('addProductForm').style.display = 'block'; // 显示表单
@@ -341,27 +330,6 @@
         document.getElementById('closeEditFormBtn').addEventListener('click', function() {
             document.getElementById('editProductFrom').style.display = 'none'; // 隐藏表单
         });
-
-        function handleEdit() {
-            var form = document.getElementById('editIdForm'); // 获取表单元素
-            var formData = new FormData(form); // 创建用于提交表单的 FormData 对象
-
-            $.ajax({
-                type: "POST",
-                url: "/editProduct", // 提交表单的后端处理逻辑URL
-                data: edit_id, // 表单数据
-                processData: false, // 告诉jQuery不要处理发送的数据
-                contentType: false, // 告诉jQuery不要设置内容类型
-                success: function(data) {
-                    // 在提交成功后进行一些操作，比如刷新商品列表或者其他逻辑处理
-                },
-                error: function(xhr, status, error) {
-                    // 发生错误时的处理逻辑
-                }
-            });
-
-            return false; // 阻止默认的表单提交行为
-        }
     </script>
 </body>
 </html>
