@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
-<%@ page import = "com.shopcart.bean.Product" %>
+<%@ page import = "com.shopcart.entity.Product" %>
 <%@ page session="false"%>
 <!DOCTYPE html>
 <html>

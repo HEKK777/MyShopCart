@@ -1,4 +1,4 @@
-package com.shopcart.bean;
+package com.shopcart.entity;
 
 public class Product {
     //商品id

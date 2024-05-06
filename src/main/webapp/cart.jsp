@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
 <%@ page import="java.text.DecimalFormat" %>
-<%@ page import="com.shopcart.bean.ShopCart" %>
+<%@ page import="com.shopcart.entity.ShopCart" %>
 <!DOCTYPE html>
 <html>
 <head>

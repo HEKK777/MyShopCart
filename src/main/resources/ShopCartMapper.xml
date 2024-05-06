@@ -2,10 +2,10 @@
 <!DOCTYPE mapper PUBLIC ".//mybaits.org/DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.shopcart.mapper.ShopCartMapper">
-    <select id="getAllShopCart" resultType="com.shopcart.bean.ShopCart">
+    <select id="getAllShopCart" resultType="com.shopcart.entity.ShopCart">
         select * from ShopCartList
     </select>
-    <insert id="insertShopCart" parameterType="com.shopcart.bean.ShopCart">
+    <insert id="insertShopCart" parameterType="com.shopcart.entity.ShopCart">
         insert into ShopCartList(product_id,product_name,product_price,product_quantity)
         values(#{product_id},#{product_name},#{product_price},#{product_quantity})
         on duplicate key update product_quantity = product_quantity + 1;

@@ -1,6 +1,6 @@
 package com.shopcart.mapper;
 
-import com.shopcart.bean.Product;
+import com.shopcart.entity.Product;
 
 import java.util.List;
 

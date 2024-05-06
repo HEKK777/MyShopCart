@@ -1,7 +1,7 @@
 package com.shopcart.servlet;
 
-import com.shopcart.bean.ShopCart;
 import com.shopcart.dao.ShopCartDao;
+import com.shopcart.entity.ShopCart;
 import com.shopcart.util.GetSqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

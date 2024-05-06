@@ -1,6 +1,6 @@
 package com.shopcart.dao;
 
-import com.shopcart.bean.ShopCart;
+import com.shopcart.entity.ShopCart;
 import com.shopcart.mapper.ShopCartMapper;
 import com.shopcart.util.GetSqlSession;
 import com.shopcart.util.GetSqlSessionFactory;
