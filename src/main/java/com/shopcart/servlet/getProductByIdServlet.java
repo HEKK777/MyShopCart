@@ -28,6 +28,7 @@ public class getProductByIdServlet extends HttpServlet {
 
         try {
             product = ProductDao.getProductById(id);
+            LOGGER.info("获取商品信息成功");
         } catch (Exception e) {
             LOGGER.error("获取商品信息失败", e);
             GetSqlSession.rollback();

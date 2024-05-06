@@ -34,7 +34,7 @@ public class addProductServlet extends HttpServlet {
         //添加到数据库
         try {
             ProductDao.addProduct(product);
-            System.out.println("添加成功");
+            LOGGER.info("添加商品成功");
         } catch (Exception e) {
             GetSqlSession.rollback();
             LOGGER.error("添加商品失败", e);

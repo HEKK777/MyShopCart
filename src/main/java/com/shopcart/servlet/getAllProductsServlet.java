@@ -29,6 +29,7 @@ public class getAllProductsServlet extends HttpServlet {
         List<Product> list = null;
         try {
             list = ProductDao.getAllProducts();
+            LOGGER.info("获取产品信息成功");
         } catch (Exception e) {
             LOGGER.error("获取产品信息失败", e);
             GetSqlSession.rollback();

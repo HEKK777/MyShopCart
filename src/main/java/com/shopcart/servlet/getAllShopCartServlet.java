@@ -28,6 +28,7 @@ public class getAllShopCartServlet extends HttpServlet {
         List<ShopCart> ShopCartList = null;
         try {
             ShopCartList = ShopCartDao.getAllShopCarts();
+            LOGGER.info("获取购物车列表成功");
         } catch (Exception e) {
             LOGGER.error("获取购物车列表失败失败", e);
             GetSqlSession.rollback();

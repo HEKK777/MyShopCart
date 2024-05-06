@@ -37,7 +37,7 @@ public class addToCartServlet extends HttpServlet {
         //添加到购物车
         try {
             ShopCartDao.insertShopCart(shopCart);
-            System.out.println("添加到购物车成功！");
+            LOGGER.info("添加到购物车成功！");
         } catch (Exception e) {
             GetSqlSession.rollback();
             LOGGER.error("添加到购物车失败！", e);

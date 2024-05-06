@@ -9,6 +9,7 @@ create table Product (
     image varchar(255)
 );
 
+#插入初始数据
 insert into Product (name, price, image) values ('白板笔',3,'PIC/白板笔.jpeg')
 insert into Product (name, price, image) values ('胶水',5,'PIC/胶水.jpeg')
 insert into Product (name, price, image) values ('川贝枇杷糖浆',23.15,'PIC/川贝枇杷糖浆.jpeg')
@@ -24,11 +25,12 @@ create table ShopCartList (
     product_quantity int
 );
 
+#测试
 insert into ShopCartList (product_id, product_name, product_price, product_quantity) values (4, '充电宝', 46, 1) on duplicate key update product_quantity = product_quantity + 1;
-
+#测试
 update shopcartlist set product_quantity = case when product_quantity > 0 then product_quantity - 1 else 0 end where product_id = 4;
 delete from ShopCartList where product_id = 4 and product_quantity = 0;
 
+
 select * from product
 select * from ShopCartList
-

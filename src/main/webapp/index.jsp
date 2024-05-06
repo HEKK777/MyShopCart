@@ -84,153 +84,146 @@
             background-color: #45a049;
         }
     </style>
+
     <style>
-        /* 弹出表单的外层容器样式 */
         #addProductForm {
-            display: none; /* 初始时隐藏表单 */
-            position: fixed; /* 固定位置 */
+            display: none;
+            position: fixed;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%); /* 居中显示 */
-            width: 400px; /* 设置表单宽度 */
-            background-color: #ffffff; /* 设置背景颜色为白色 */
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* 添加阴影效果 */
-            border-radius: 8px; /* 设置圆角 */
-            padding: 20px; /* 内边距 */
-            z-index: 1000; /* 确保表单在最上层 */
-            overflow: hidden; /* 隐藏超出部分 */
+            transform: translate(-50%, -50%);
+            width: 400px;
+            background-color: #ffffff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 20px;
+            z-index: 1000;
+            overflow: hidden;
         }
 
-        /* 表单标题样式 */
         #addProductForm h2 {
-            text-align: center; /* 居中标题 */
-            margin-bottom: 20px; /* 与下方内容保持间距 */
+            text-align: center;
+            margin-bottom: 20px;
         }
 
-        /* 表单标签样式 */
         #addProductForm label {
-            display: block; /* 块级显示 */
-            margin-bottom: 5px; /* 与下方输入框保持间距 */
+            display: block;
+            margin-bottom: 5px;
         }
 
-        /* 表单输入框样式 */
         #addProductForm input[type="text"] {
-            width: 100%; /* 宽度占满容器 */
-            padding: 10px; /* 内边距 */
-            margin-bottom: 15px; /* 与下方元素保持间距 */
-            border: 1px solid #ccc; /* 边框样式 */
-            border-radius: 4px; /* 输入框圆角 */
-            box-sizing: border-box; /* 确保内边距不会影响元素宽度 */
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
         }
 
         #addProductForm input[type="number"] {
-            width: 100%; /* 宽度占满容器 */
-            padding: 10px; /* 内边距 */
-            margin-bottom: 15px; /* 与下方元素保持间距 */
-            border: 1px solid #ccc; /* 边框样式 */
-            border-radius: 4px; /* 输入框圆角 */
-            box-sizing: border-box; /* 确保内边距不会影响元素宽度 */
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
         }
 
-        /* 表单提交按钮样式 */
         #addProductForm input[type="submit"] {
-            width: 100%; /* 宽度占满容器 */
-            padding: 10px; /* 内边距 */
-            background-color: #4CAF50; /* 按钮背景颜色 */
-            color: white; /* 按钮文字颜色 */
-            border: none; /* 无边框 */
-            border-radius: 4px; /* 按钮圆角 */
-            cursor: pointer; /* 鼠标悬停时变为手形 */
-            margin-bottom: 15px; /* 与下方元素保持间距 */
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 15px;
         }
 
         /* 表单提交按钮悬停样式 */
         #addProductForm input[type="submit"]:hover {
-            background-color: #45a049; /* 悬停时背景颜色变深 */
+            background-color: #45a049;
         }
 
         /* 表单关闭按钮样式 */
         #addProductForm button[type="button"] {
-           width: 100%; /* 宽度占满容器 */
-           padding: 10px; /* 内边距 */
-           background-color: #4CAF50; /* 按钮背景颜色 */
-           color: white; /* 按钮文字颜色 */
-           border: none; /* 无边框 */
-           border-radius: 4px; /* 按钮圆角 */
-           cursor: pointer; /* 鼠标悬停时变为手形 */
+           width: 100%;
+           padding: 10px;
+           background-color: #4CAF50;
+           color: white;
+           border: none;
+           border-radius: 4px;
+           cursor: pointer;
         }
 
         /* 弹出表单的外层容器样式 */
         #editProductFrom {
-            position: fixed; /* 固定位置 */
-            bottom: 20px; /* 距离页面底部 20px */
-            left: 50%; /* 水平居中 */
-            transform: translateX(-50%); /* 水平居中 */
-            width: 100%; /* 设置表单宽度 */
-            max-width: 1000px; /* 设置表单的最大宽度 */
-            background-color: #ffffff; /* 设置背景颜色为白色 */
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* 添加阴影效果 */
-            border-radius: 8px; /* 设置圆角 */
-            padding: 20px; /* 内边距 */
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 1000px;
+            background-color: #ffffff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 20px;
         }
 
         /* 表单标题样式 */
         #editProductFrom h2 {
-            text-align: center; /* 居中标题 */
-            margin-bottom: 20px; /* 与下方内容保持间距 */
+            text-align: center;
+            margin-bottom: 20px;
         }
 
         /* 表单标签样式 */
         #editProductFrom label {
-            display: block; /* 块级显示 */
-            margin-bottom: 5px; /* 与下方输入框保持间距 */
+            display: block;
+            margin-bottom: 5px;
         }
 
         /* 表单输入框样式 */
         #editProductFrom input[type="text"] {
-            width: 100%; /* 宽度占满容器 */
-            padding: 10px; /* 内边距 */
-            margin-bottom: 15px; /* 与下方元素保持间距 */
-            border: 1px solid #ccc; /* 边框样式 */
-            border-radius: 4px; /* 输入框圆角 */
-            box-sizing: border-box; /* 确保内边距不会影响元素宽度 */
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
         }
 
         #editProductFrom input[type="number"] {
-            width: 100%; /* 宽度占满容器 */
-            padding: 10px; /* 内边距 */
-            margin-bottom: 15px; /* 与下方元素保持间距 */
-            border: 1px solid #ccc; /* 边框样式 */
-            border-radius: 4px; /* 输入框圆角 */
-            box-sizing: border-box; /* 确保内边距不会影响元素宽度 */
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
         }
 
-        /* 表单提交按钮样式 */
         #editProductFrom input[type="submit"] {
-            width: 100%; /* 宽度占满容器 */
-            padding: 10px; /* 内边距 */
-            background-color: #4CAF50; /* 按钮背景颜色 */
-            color: white; /* 按钮文字颜色 */
-            border: none; /* 无边框 */
-            border-radius: 4px; /* 按钮圆角 */
-            cursor: pointer; /* 鼠标悬停时变为手形 */
-            margin-bottom: 15px; /* 与下方元素保持间距 */
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 15px;
         }
 
-        /* 表单提交按钮悬停样式 */
         #editProductFrom input[type="submit"]:hover {
-            background-color: #45a049; /* 悬停时背景颜色变深 */
+            background-color: #45a049;
         }
 
-        /* 表单关闭按钮样式 */
         #editProductFrom button[type="button"] {
-           width: 100%; /* 宽度占满容器 */
-           padding: 10px; /* 内边距 */
-           background-color: #4CAF50; /* 按钮背景颜色 */
-           color: white; /* 按钮文字颜色 */
-           border: none; /* 无边框 */
-           border-radius: 4px; /* 按钮圆角 */
-           cursor: pointer; /* 鼠标悬停时变为手形 */
+           width: 100%;
+           padding: 10px;
+           background-color: #4CAF50;
+           color: white;
+           border: none;
+           border-radius: 4px;
+           cursor: pointer;
         }
     </style>
 
@@ -277,11 +270,9 @@
     <div id="addProductForm">
         <h2>添加商品信息</h2>
         <form action="/addProduct" method="post">
-            <!-- 表单内容，如商品名称、价格、图片等 -->
             <input type="text" name="Name" placeholder="商品名称">
             <input type="number" step="0.01" name="Price" placeholder="商品价格">
             <input type="text" name="Image" placeholder="商品图片路径">
-            <!-- 其他需要的输入字段 -->
             <input type="submit" value="提交">
             <button type="button" id="closeFormBtn">关闭</button>
         </form>
@@ -298,14 +289,11 @@
          }
     %>
     <div id="editProductFrom">
-        <h2>编辑商品信息</h2>
         <form action="/editProduct" method="post">
-            <!-- 表单内容，如商品名称、价格、图片等 -->
             <input type="hidden" name="id" value="<%= edit_product.getId() %>">
             <input type="text" name="name" value="<%= edit_product.getName() %>" placeholder="商品名称">
             <input type="number" step="0.01" name="price" value="<%= edit_product.getPrice() %>" placeholder="商品价格">
             <input type="text" name="image" value="<%= edit_product.getImage() %>" placeholder="商品图片路径">
-            <!-- 其他需要的输入字段 -->
             <input type="submit" value="提交">
             <button type="button" id="closeEditFormBtn">关闭</button>
         </form>
@@ -313,7 +301,6 @@
 
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <!-- 商品列表等其他内容 -->
     <script>
         document.getElementById('addProductBtn').addEventListener('click', function() {
             document.getElementById('addProductForm').style.display = 'block'; // 显示表单
